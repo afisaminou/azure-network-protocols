@@ -68,13 +68,14 @@ Back to VM2’s Network Security Group to "Allow" the Inbound Security Rule that
 <img src="https://i.imgur.com/6smWVYS.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-I then filtered for SSH traffic in Wireshark and used the PowerShell terminal to “SSH into” VM2. Connecting to VM2 using SSH, along with typing and executing commends, generated SSH packets that could be observed in Wireshark. Using the “exit” command, I ended the SSH session and returned to the original terminal.
-</p>
+I then filtered for SSH traffic in Wireshark and used the PowerShell terminal to “SSH into” VM2. Connecting to VM2 using SSH, along with typing and executing commends, generated SSH packets that could be observed in Wireshark. Using the “exit” command to end the SSH session.
 <br />
-<img src="https://i.imgur.com/CJkfK9e.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
+<img src="https://i.imgur.com/9PHZIlX.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
+To observe DHCP traffic, let's filter for DHCP traffic in Wireshark and used the “ipconfig /renew” command to attempt to issue a new IP address to VM1. Although the private IP address did not change, Wireshark shows that there was a request and acknowledgement, so DHCP traffic was generated.
 <br />
-<img src="https://i.imgur.com/CJkfK9e.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/cVmHpZG.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<p>
+In Wireshark, I filtered for DNS traffic and used the “nslookup” command for www.nike.com. This command basically asks our DNS server what is nike's IP address.
+<br />
+<img src="https://i.imgur.com/pun1RSV.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
