@@ -40,21 +40,20 @@ Re-enable ICMP traffic for the Network Security Group your Ubuntu VM is using. B
 
 <p>
 <p>
-One of the requierement for this lab is to create our Resource Group and two (2) VMs on Azure. One machine will a Windows 10 (VM1) and the other will be a Linux machine (VM2).
+One of the requierement for this lab is to create our Resource Group and two (2) VMs on Azure. One machine will be a Windows 10 (VM1) and the other will be a Linux machine (VM2).
 <br />
 <img src="https://i.imgur.com/dcAjwKN.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 Use Remote Desktop to connect to our Windows 10 Virtual Machine (VM1) using the Public IP address and Install Wireshark in there.
 <img src="https://i.imgur.com/Iqylgga.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
-<p>
-Once Wireshark downloaded and Installed in Windows 10 VM (VM1), I opened and filtered for ICMP traffic only. Then using Powershell and the private IP address of the Ubuntu VM (VM2) attempt to ping it from within the Windows 10 VM and Observe ping requests and replies within Wireshark between the two (2) Virtual Machines.
+Once Wireshark downloaded and Installed in Windows 10 VM (VM1), I opened and filtered for ICMP traffic only. Then using Powershell and the private IP address of the Ubuntu VM (VM2) I attempted to ping it from within the Windows 10 VM and Observed ping requests and replies within Wireshark from both Virtual Machines.
 <br />
 <p>
 <img src="https://i.imgur.com/CJkfK9e.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Now after I Initiate a perpetual/non-stop ping from your Windows 10 VM to our Ubuntu/Linux VM, let's Open the Network Security Group using by the Ubuntu VM, disable incoming (inbound) ICMP traffic and observe the ICMP traffic in WireShark and the command line Ping activity.
+Now, after I Initiate a perpetual/non-stop ping from our Windows 10 VM to our Ubuntu/Linux VM, let's Open the Network Security Group using by the Ubuntu VM, disable incoming (inbound) ICMP traffic and observe the ICMP traffic in WireShark and the command line Ping activity.
 <br />
 <img src="https://i.imgur.com/RTKM8Bh.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
@@ -68,14 +67,19 @@ Back to VM2’s Network Security Group to "Allow" the Inbound Security Rule that
 <img src="https://i.imgur.com/6smWVYS.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-I then filtered for SSH traffic in Wireshark and used the PowerShell terminal to “SSH into” VM2. Connecting to VM2 using SSH, along with typing and executing commends, generated SSH packets that could be observed in Wireshark. Using the “exit” command to end the SSH session.
+I then filtered for SSH (Secure Shell) traffic in Wireshark and used the PowerShell terminal to “SSH into” VM2. Connecting to VM2 using SSH, along with typing and executing commends, generated SSH packets that could be observed in Wireshark. Using the “exit” command to end the SSH session.
 <br />
 <img src="https://i.imgur.com/9PHZIlX.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <p>
-To observe DHCP traffic, let's filter for DHCP traffic in Wireshark and used the “ipconfig /renew” command to attempt to issue a new IP address to VM1. Although the private IP address did not change, Wireshark shows that there was a request and acknowledgement, so DHCP traffic was generated.
+To observe DHCP (Dynamic Host Configuration Protocol) traffic, let's filter for DHCP traffic in Wireshark and used the “ipconfig /renew” command to attempt to issue a new IP address to VM1. Although the private IP address did not change, Wireshark shows that there was a request and acknowledgement, so DHCP traffic was generated.
 <br />
 <img src="https://i.imgur.com/cVmHpZG.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <p>
-In Wireshark, I filtered for DNS traffic and used the “nslookup” command for www.nike.com. This command basically asks our DNS server what is nike's IP address.
+In Wireshark, I filtered for DNS (Domain Name System)  traffic and used the “nslookup” command for www.nike.com. This command basically asks our DNS server what is nike's IP address.
 <br />
 <img src="https://i.imgur.com/pun1RSV.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<p>
+Finally, I will filter for RDP (Remote Desk Protocol) traffic by using the TCP port number (tcp.port==3389). RDP traffic was continually generated 
+<br />
+<img src="https://i.imgur.com/6smWVYS.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
