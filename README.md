@@ -5,11 +5,6 @@
 <h1>Network Security Groups (NSGs) and Inspecting Traffic Between Azure Virtual Machines</h1>
 In this tutorial, I observe various network traffic to and from Azure Virtual Machines using Wireshark as well as experiment with Network Security Groups. <br />
 
-
-<h2>Video Demonstration</h2>
-
-- ### [YouTube: Azure Virtual Machines, Wireshark, and Network Security Groups](https://www.youtube.com)
-
 <h2>Environments and Technologies Used</h2>
 
 - Microsoft Azure (Virtual Machines/Compute)
@@ -37,17 +32,21 @@ Re-enable ICMP traffic for the Network Security Group your Ubuntu VM is using. B
 - Clean up, delete Resource Groups in Azure
 
 <h2>Actions and Observations</h2>
+<p>
+<p>
 
-<p>
-<p>
-One of the requierement for this lab is to create our Resource Group and two (2) VMs on Azure. One machine will be a Windows 10 (VM1) and the other will be a Linux machine (VM2).
-<br />
+One of the requierement for this lab is to create our Resource Group and two (2) VMs on Azure. One machine will be a Windows 10 (VM1) and the other will be a Linux machine (VM2).<br/>
+<br/>
 <img src="https://i.imgur.com/dcAjwKN.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
+
 Use Remote Desktop to connect to our Windows 10 Virtual Machine (VM1) using the Public IP address and Install Wireshark in there.
+
+<br/>
 <img src="https://i.imgur.com/Iqylgga.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 Once Wireshark downloaded and Installed in Windows 10 VM (VM1), I opened and filtered for ICMP traffic only. Then using Powershell and the private IP address of the Ubuntu VM (VM2) I attempted to ping it from within the Windows 10 VM and Observed ping requests and replies within Wireshark from both Virtual Machines.
+
 <br />
 <p>
 <img src="https://i.imgur.com/CJkfK9e.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
