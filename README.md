@@ -35,7 +35,7 @@ Re-enable ICMP traffic for the Network Security Group your Ubuntu VM is using. B
 <p>
 <p>
 
-<h3>Step 1:</h3>
+<h3>Step 1: Create Resource Groups and Virtual Machines</h3>
 One of the requierement for this lab is to create our Resource Group and two (2) VMs on Azure. One machine will be a Windows 10 (VM1) and the other will be a Linux machine (VM2).<br/>
 
 <p></p>
@@ -50,13 +50,13 @@ If you need guidance on how to create VMs in Azure, you can see my tutorial on i
 <img src="https://i.imgur.com/jIrniNI.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 
-<h3>Step 2:</h3>
+<h3>Step 2: Download Wireshark via RDP on Windows Virtual Machine (VM1) </h3>
 Use Remote Desktop to connect to our Windows 10 Virtual Machine (VM1) using the Public IP address and Install Wireshark in there.
 
 <br/>
 <img src="https://i.imgur.com/Vq6wpon.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
-<h3>Step 3:</h3>
+<h3>Step 3: Observe ICMP Traffic</h3>
 Once Wireshark downloaded and Installed in Windows 10 VM (VM1), I opened and filtered for ICMP traffic only. Then using Powershell and the private IP address of the Ubuntu VM (VM2) I attempted to ping it from within the Windows 10 VM and Observed ping requests and replies within Wireshark from both Virtual Machines.
 
 <br />
@@ -65,17 +65,17 @@ Once Wireshark downloaded and Installed in Windows 10 VM (VM1), I opened and fil
 </p>
 <p>
 Now, after I Initiate a perpetual/non-stop ping from our Windows 10 VM to our Ubuntu/Linux VM, let's Open the Network Security Group using by the Ubuntu VM, disable incoming (inbound) ICMP traffic and observe the ICMP traffic in WireShark and the command line Ping activity.
-<br />
-<img src="https://i.imgur.com/RTKM8Bh.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br/>
+<img src="https://i.imgur.com/VLuPiCJ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 Observe the ping request times out after the firewall rule was put in place (*note - The ping request timed out due to the ICMP traffic being denied as the firewall rule blocked the traffic).
 <br />
-<img src="https://i.imgur.com/Ir8Z2Fs.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/1qmVWEA.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 Back to VM2’s Network Security Group to "Allow" the Inbound Security Rule that was set up to deny so the incoming ICMP traffic would be allowed to VM2 again. We can see that Re-enable ICMP traffic for the Network Security Group in Ubuntu VM bring back ping requests and replies within wireshark. Now we can stop the ping activity.
 <br />
-<img src="https://i.imgur.com/6smWVYS.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/Tcu7L1u.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 I then filtered for SSH (Secure Shell) traffic in Wireshark and used the PowerShell terminal to “SSH into” VM2. Connecting to VM2 using SSH, along with typing and executing commends, generated SSH packets that could be observed in Wireshark. Using the “exit” command to end the SSH session.
