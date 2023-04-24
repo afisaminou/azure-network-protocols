@@ -35,9 +35,18 @@ Re-enable ICMP traffic for the Network Security Group your Ubuntu VM is using. B
 <p>
 <p>
 
+<h3>Step 1:</h3>
 One of the requierement for this lab is to create our Resource Group and two (2) VMs on Azure. One machine will be a Windows 10 (VM1) and the other will be a Linux machine (VM2).<br/>
-If you need guidance how to create VMs in Azure, you can see my tutorial on it [here](https://github.com/afisaminou/Create-an-Azure-Account-and-Deploy-a-Virtual-Machine) <br/>
-<br/>
+
+<p></p>
+
+If you need guidance on how to create VMs in Azure, you can see my tutorial on it [here](https://github.com/afisaminou/Create-an-Azure-Account-and-Deploy-a-Virtual-Machine).
+
+<p></p>
+
+<p></p>
+
+
 <img src="https://i.imgur.com/jIrniNI.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 
