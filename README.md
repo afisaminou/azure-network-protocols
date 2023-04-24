@@ -50,6 +50,7 @@ If you need guidance on how to create VMs in Azure, you can see my tutorial on i
 <img src="https://i.imgur.com/jIrniNI.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 
+<h3>Step 2:</h3>
 Use Remote Desktop to connect to our Windows 10 Virtual Machine (VM1) using the Public IP address and Install Wireshark in there.
 
 <br/>
