@@ -36,8 +36,9 @@ Re-enable ICMP traffic for the Network Security Group your Ubuntu VM is using. B
 <p>
 
 One of the requierement for this lab is to create our Resource Group and two (2) VMs on Azure. One machine will be a Windows 10 (VM1) and the other will be a Linux machine (VM2).<br/>
+If you need guidance how to create VMs in Azure, you can see my tutorial on it [here](https://github.com/afisaminou/Create-an-Azure-Account-and-Deploy-a-Virtual-Machine) <br/>
 <br/>
-<img src="https://i.imgur.com/dcAjwKN.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/jIrniNI.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 
 Use Remote Desktop to connect to our Windows 10 Virtual Machine (VM1) using the Public IP address and Install Wireshark in there.
