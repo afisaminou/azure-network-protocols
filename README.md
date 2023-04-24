@@ -54,7 +54,7 @@ If you need guidance on how to create VMs in Azure, you can see my tutorial on i
 Use Remote Desktop to connect to our Windows 10 Virtual Machine (VM1) using the Public IP address and Install Wireshark in there.
 
 <br/>
-<img src="https://i.imgur.com/Iqylgga.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/Vq6wpon.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 Once Wireshark downloaded and Installed in Windows 10 VM (VM1), I opened and filtered for ICMP traffic only. Then using Powershell and the private IP address of the Ubuntu VM (VM2) I attempted to ping it from within the Windows 10 VM and Observed ping requests and replies within Wireshark from both Virtual Machines.
 
