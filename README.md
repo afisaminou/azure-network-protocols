@@ -51,9 +51,13 @@ If you need guidance on how to create VMs in Azure, you can see my tutorial on i
 <br />
 
 <h3>Step 2: Download Wireshark via RDP on Windows Virtual Machine (VM1) </h3>
-Use Remote Desktop to connect to our Windows 10 Virtual Machine (VM1) using the Public IP address and Install Wireshark in there.
+<p></p>
 
-<br/>
+Use Remote Desktop to connect to our Windows 10 Virtual Machine (VM1) using the Public IP address and Install [Wireshark](https://www.wireshark.org/download.html) in there.
+<p
+
+<p></p>
+
 <img src="https://i.imgur.com/Vq6wpon.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <h3>Step 3: Observe ICMP Traffic</h3>
@@ -73,7 +77,7 @@ Observe the ping request times out after the firewall rule was put in place (*no
 <img src="https://i.imgur.com/1qmVWEA.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Back to VM2’s Network Security Group to "Allow" the Inbound Security Rule that was set up to deny so the incoming ICMP traffic would be allowed to VM2 again. We can see that Re-enable ICMP traffic for the Network Security Group in Ubuntu VM bring back ping requests and replies within wireshark. Now we can stop the ping activity.
+Back to VM2’s Network Security Group to "Allow" the Inbound Security Rule that was set up to deny so the incoming ICMP traffic would be allowed to VM2 again. We can see that Re-enable ICMP traffic for the Network Security Group in Ubuntu VM bring back ping requests and replies within wireshark. Now we can stop the ping activity by preessing "Control" + "C".
 <br />
 <img src="https://i.imgur.com/Tcu7L1u.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
