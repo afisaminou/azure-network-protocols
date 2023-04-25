@@ -10,7 +10,7 @@ In this tutorial, I observe various network traffic to and from Azure Virtual Ma
 - Microsoft Azure (Virtual Machines/Compute)
 - Remote Desktop
 - Various Command-Line Tools
-- Various Network Protocols (SSH, RDH, DNS, HTTP/S, ICMP)
+- Various Network Protocols (ICMP, SSH, DHCP, DNS, RDP)
 - Wireshark (Protocol Analyzer)
 
 <h2>Operating Systems Used </h2>
@@ -84,8 +84,6 @@ Back to VM2’s Network Security Group to "Allow" the Inbound Security Rule that
 <br />
 <img src="https://i.imgur.com/Tcu7L1u.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
-<p>
-
 <h3>Step 5: Observe SSH Traffic </h3>
 <p></p>  
   
@@ -93,15 +91,26 @@ I then filtered for SSH (Secure Shell) traffic in Wireshark and used the PowerSh
 <br />
 <img src="https://i.imgur.com/gD7kvlG.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <p>
-To observe DHCP (Dynamic Host Configuration Protocol) traffic, let's filter for DHCP traffic in Wireshark and used the “ipconfig /renew” command to attempt to issue a new IP address to VM1. Although the private IP address did not change, Wireshark shows that there was a request and acknowledgement, so DHCP traffic was generated.
+<h3>Step 6: Observe DHCP Traffic </h3>
+<p></p>
+ 
+To observe DHCP (Dynamic Host Configuration Protocol) traffic which is the network protocol responsible for automatically assigning IP addresses, let's filter for DHCP traffic in Wireshark and used the “ipconfig /renew” command to attempt to issue a new IP address to VM1. Although the private IP address did not change, Wireshark shows that there was a request and acknowledgement, so DHCP traffic was generated.
 <br />
-<img src="https://i.imgur.com/cVmHpZG.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/1COIRiA.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <p>
-In Wireshark, I filtered for DNS (Domain Name System)  traffic and used the “nslookup” command for www.nike.com. This command basically asks our DNS server what is nike's IP address.
+<h3>Step 7: Observe DNS Traffic </h3>
+<p></p>
+In Wireshark, I filtered for DNS (Domain Name System)  traffic and used the “nslookup” command for www.nike.com. This command basically asks our DNS server what is nike's IP address. DNS is the network protocol that transforms Fully Qualified Domain Names (FQDNs) into their assigned IP addresses.
 <br />
-<img src="https://i.imgur.com/pun1RSV.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/3GeBfeC.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <p>
-Finally, I will filter for RDP (Remote Desk Protocol) traffic by using the TCP port number (tcp.port==3389). RDP traffic was continually generated 
+<h3>Step 8: Observe RDP Traffic </h3>
+<p></p>
+ Finally, I will filter for RDP (Remote Desk Protocol) traffic by using the TCP port number (tcp.port==3389). RDP is the protocol that allows the remote connection to another computer and complete control of the Graphical User Interface (GUI). RDP traffic was continually generated 
 <br />
-<img src="https://i.imgur.com/6smWVYS.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/bfO6tMe.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
+Thank you for checking out this tutorial. It should have helped you gain a better understanding of network protocols and how network traffic works.
+
+
+**REMEMBER TO DELETE YOUR RESOURCES ONCE YOU ARE DONE WITH THE LAB!**
