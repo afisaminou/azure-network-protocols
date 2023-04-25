@@ -68,7 +68,10 @@ Once Wireshark downloaded and Installed in Windows 10 VM (VM1), I opened and fil
 <img src="https://i.imgur.com/78h2KX8.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Now, after I Initiate a perpetual/non-stop ping from our Windows 10 VM to our Ubuntu/Linux VM, let's Open the Network Security Group using by the Ubuntu VM, disable incoming (inbound) ICMP traffic and observe the ICMP traffic in WireShark and the command line Ping activity.
+<h3>Step 4: </h3>
+<p></p>
+ 
+Now, after I Initiated a perpetual/non-stop ping from our Windows 10 VM to our Ubuntu/Linux VM, let's Open the Network Security Group using by the Ubuntu VM, disable incoming (inbound) ICMP traffic and observe the ICMP traffic in WireShark and the command line Ping activity.
 <br/>
 <img src="https://i.imgur.com/VLuPiCJ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
@@ -82,9 +85,13 @@ Back to VM2’s Network Security Group to "Allow" the Inbound Security Rule that
 <img src="https://i.imgur.com/Tcu7L1u.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
+
+<h3>Step 5: Observe SSH Traffic </h3>
+<p></p>  
+  
 I then filtered for SSH (Secure Shell) traffic in Wireshark and used the PowerShell terminal to “SSH into” VM2. Connecting to VM2 using SSH, along with typing and executing commends, generated SSH packets that could be observed in Wireshark. Using the “exit” command to end the SSH session.
 <br />
-<img src="https://i.imgur.com/9PHZIlX.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/gD7kvlG.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <p>
 To observe DHCP (Dynamic Host Configuration Protocol) traffic, let's filter for DHCP traffic in Wireshark and used the “ipconfig /renew” command to attempt to issue a new IP address to VM1. Although the private IP address did not change, Wireshark shows that there was a request and acknowledgement, so DHCP traffic was generated.
 <br />
