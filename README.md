@@ -29,14 +29,14 @@ Re-enable ICMP traffic for the Network Security Group your Ubuntu VM is using. B
 - Step 6: From your Windows 10 VM, attempt to issue your VM a new IP address from the command line (ipconfig /renew) and observe DHCP traffic in Wireshark
 - Step 7: From your Windows 10 VM within a command line, use nslookup command to see what nike.com is and observe DNS traffic in Wireshark
 - Step 8: Observe ongoing RDP traffic (tcp.port == 3389) in Wireshark
-- Clean up, delete Resource Groups in Azure
+- Clean up, and delete Resource Groups in Azure
 
 <h2>Actions and Observations</h2>
 <p>
 <p>
 
 <h3>Step 1: Create Resource Groups and Virtual Machines</h3>
-One of the requierement for this lab is to create our Resource Group and two (2) VMs on Azure. One machine will be a Windows 10 (VM1) and the other will be a Linux machine (VM2).<br/>
+One requirement for this lab is to create our Resource Group and two (2) VMs on Azure. One machine will be a Windows 10 (VM1) and the other will be a Linux machine (VM2).<br/>
 
 <p></p>
 
@@ -61,11 +61,11 @@ Use Remote Desktop to connect to our Windows 10 Virtual Machine (VM1) using the 
 <img src="https://i.imgur.com/Vq6wpon.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <h3>Step 3: Observe ICMP Traffic</h3>
-Once Wireshark downloaded and Installed in Windows 10 VM (VM1), I opened and filtered for ICMP traffic only. Then using Powershell and the private IP address of the Ubuntu VM (VM2) I attempted to ping it from within the Windows 10 VM and Observed ping requests and replies within Wireshark from both Virtual Machines.
+Once Wireshark was downloaded and Installed in Windows 10 VM (VM1), I opened and filtered for ICMP traffic only. Then using Powershell and the private IP address of the Ubuntu VM (VM2) I attempted to ping it from within the Windows 10 VM and Observed ping requests and replies within Wireshark from both Virtual Machines.
 
 <br />
 <p>
-<img src="https://i.imgur.com/78h2KX8.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/9qAJ7Q9.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 <h3>Step 4: </h3>
@@ -75,32 +75,32 @@ Now, after I Initiated a perpetual/non-stop ping from our Windows 10 VM to our U
 <br/>
 <img src="https://i.imgur.com/VLuPiCJ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
-Observe the ping request times out after the firewall rule was put in place (*note - The ping request timed out due to the ICMP traffic being denied as the firewall rule blocked the traffic).
+Observe the ping request times out after the firewall rule was implemented (*note - The ping request timed out due to the ICMP traffic being denied as the firewall rule blocked the traffic).
 <br />
 <img src="https://i.imgur.com/1qmVWEA.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Back to VM2’s Network Security Group to "Allow" the Inbound Security Rule that was set up to deny so the incoming ICMP traffic would be allowed to VM2 again. We can see that Re-enable ICMP traffic for the Network Security Group in Ubuntu VM bring back ping requests and replies within wireshark. Now we can stop the ping activity by preessing "Control" + "C".
+Back to VM2’s Network Security Group to "Allow" the Inbound Security Rule that was set up to deny so the incoming ICMP traffic would be allowed to VM2 again. We can see that Re-enable ICMP traffic for the Network Security Group in Ubuntu VM brings back ping requests and replies within Wireshark. Now we can stop the ping activity by pressing "Control" + "C".
 <br />
 <img src="https://i.imgur.com/Tcu7L1u.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <h3>Step 5: Observe SSH Traffic </h3>
 <p></p>  
   
-I then filtered for SSH (Secure Shell) traffic in Wireshark and used the PowerShell terminal to “SSH into” VM2. Connecting to VM2 using SSH, along with typing and executing commends, generated SSH packets that could be observed in Wireshark. Using the “exit” command to end the SSH session.
+I then filtered for SSH (Secure Shell) traffic in Wireshark and used the PowerShell terminal to “SSH into” VM2. Connecting to VM2 using SSH, along with typing and executing commands, generated SSH packets that could be observed in Wireshark. Using the “exit” command to end the SSH session.
 <br />
 <img src="https://i.imgur.com/gD7kvlG.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <p>
 <h3>Step 6: Observe DHCP Traffic </h3>
 <p></p>
  
-To observe DHCP (Dynamic Host Configuration Protocol) traffic which is the network protocol responsible for automatically assigning IP addresses, let's filter for DHCP traffic in Wireshark and used the “ipconfig /renew” command to attempt to issue a new IP address to VM1. Although the private IP address did not change, Wireshark shows that there was a request and acknowledgement, so DHCP traffic was generated.
+To observe DHCP (Dynamic Host Configuration Protocol) traffic which is the network protocol responsible for automatically assigning IP addresses, let's filter for DHCP traffic in Wireshark and used the “ipconfig /renew” command to attempt to issue a new IP address to VM1. Although the private IP address did not change, Wireshark shows that there was a request and acknowledgment, so DHCP traffic was generated.
 <br />
 <img src="https://i.imgur.com/1COIRiA.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <p>
 <h3>Step 7: Observe DNS Traffic </h3>
 <p></p>
-In Wireshark, I filtered for DNS (Domain Name System)  traffic and used the “nslookup” command for www.nike.com. This command basically asks our DNS server what is nike's IP address. DNS is the network protocol that transforms Fully Qualified Domain Names (FQDNs) into their assigned IP addresses.
+I filtered for DNS (Domain Name System) traffic in Wireshark and used the “nslookup” command for www.nike.com. This command basically asks our DNS server what is Nike's IP address. DNS is the network protocol that transforms Fully Qualified Domain Names (FQDNs) into their assigned IP addresses.
 <br />
 <img src="https://i.imgur.com/3GeBfeC.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <p>
